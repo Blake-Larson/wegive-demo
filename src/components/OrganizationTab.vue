@@ -1,5 +1,5 @@
 <script setup>
-import AddButton from './AddButton.vue'
+import AddButton from './buttons/AddButton.vue'
 import DomainItem from './DomainItem.vue'
 import IconBook from './icons/IconBook.vue'
 </script>
@@ -25,7 +25,7 @@ import IconBook from './icons/IconBook.vue'
 
     <div class="flex flex-col gap-4 py-5">
       <div v-for="domain in domains" :key="domain.id">
-        <DomainItem :domain="domain" />
+        <DomainItem @toggle-add-domain="toggleAddDomain" :domain="domain" />
       </div>
     </div>
   </section>

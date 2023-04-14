@@ -1,75 +1,38 @@
 <script setup>
-import IconChevronRight from './icons/IconChevronRight.vue'
+import DomainInfoExt from './DomainInfoExt.vue'
+import EditCustomAddresses from './EditCustomAddresses.vue'
+import AddButton from './buttons/AddButton.vue'
 </script>
 
 <template>
-  <div
-    @click="toggleAuthDomain"
-    :class="[
-      this.showAuthDomain ? 'border-primary border-b-0 rounded-b-none border' : '',
-      'w-full flex items-center gap-4 py-8 px-6 rounded-2xl relative hover:cursor-pointer'
-    ]"
-  >
-    <div class="flex gap-4 items-center py-4 px-14 w-full">
-      <div
-        class="rounded-full border border-slate-950 w-6 h-6 flex justify-center items-center text-lg"
-      >
-        1
-      </div>
-      <h5 class="font-bold">Authenticate domain</h5>
-    </div>
-
-    <div class="absolute right-6 flex gap-14">
-      <div
-        :class="[
-          this.showAuthDomain ? 'rotate-90' : '',
-          'text-custom-grey transition-all duration-200'
-        ]"
-      >
-        <IconChevronRight />
-      </div>
-    </div>
-  </div>
-
-  <div
-    v-if="this.showAuthDomain"
-    class="border border-primary border-t-0 rounded-2xl rounded-t-none flex flex-col"
-  >
-    <div v-if="this.showAuthDomain" class="h-[1px] w-11/12 bg-slate-200 self-center"></div>
-    <div class="p-5">Authenticate domain information...</div>
-  </div>
-  <div class="flex gap-4 items-center py-4 px-14 w-full">
-    <div
-      class="rounded-full border border-slate-950 w-6 h-6 flex justify-center items-center text-lg"
+  <div class="flex flex-col gap-4">
+    <DomainInfoExt
+      title="Authenticate domain"
+      number="1"
+      desc="Authenticate domain information..."
+    />
+    <DomainInfoExt
+      title="Manage custom addresses"
+      number="2"
+      desc="Custom addresses can be used as ”from” and ”reply-to” addresses when you send emails. This
+          is useful if you'd like certain outbound emails to appear as coming from a team, or if
+          you'd like to change how your name appears in email clients."
     >
-      2
-    </div>
-    <h5 class="font-bold">Manage custom addresses</h5>
+      <EditCustomAddresses />
+      <div class="self-end">
+        <AddButton
+          @btn-click="($event) => $emit('toggle-add-domain')"
+          text="Add a custom address"
+          color="bg-primary"
+        />
+      </div>
+    </DomainInfoExt>
   </div>
 </template>
 
 <script>
 export default {
   name: 'DomainInfo',
-  props: {
-    domain: {
-      type: Object
-    }
-  },
-  data() {
-    return {
-      showAuthDomain: false,
-      showCustomAddresses: false
-    }
-  },
-  components: { IconChevronRight },
-  methods: {
-    toggleAuthDomain() {
-      this.showAuthDomain = !this.showAuthDomain
-    },
-    toggleCustomAddresses() {
-      this.showCustomAddresses = !this.showCustomAddresses
-    }
-  }
+  components: { DomainInfoExt, EditCustomAddresses, AddButton }
 }
 </script>

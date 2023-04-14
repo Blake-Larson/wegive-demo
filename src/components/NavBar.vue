@@ -4,7 +4,9 @@ import NavItem from './NavItem.vue'
 
 <template>
   <nav class="pt-6">
-    <ul class="flex justify-evenly text-primary font-bold text-center hover:cursor-pointer">
+    <ul
+      class="flex justify-evenly text-primary font-bold text-center hover:cursor-pointer border-b-2 border-slate-100"
+    >
       <NavItem
         :activeTab="activeTab"
         @tab-nav="($event) => $emit('tab-nav', $event)"

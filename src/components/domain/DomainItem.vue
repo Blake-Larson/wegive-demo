@@ -8,7 +8,7 @@ import DomainInfo from './DomainInfo.vue'
 <template>
   <div
     :class="[
-      this.showDomainInfo ? 'border-primary pb-8' : 'border-slate-200',
+      showDomainInfo ? 'border-primary pb-8' : 'border-slate-200',
       'w-full flex flex-col border rounded-2xl  px-5'
     ]"
   >
@@ -36,7 +36,7 @@ import DomainInfo from './DomainInfo.vue'
         </div>
         <div
           :class="[
-            this.showDomainInfo ? 'rotate-90' : '',
+            showDomainInfo ? 'rotate-90' : '',
             'text-custom-grey transition-all duration-200'
           ]"
         >
@@ -45,12 +45,9 @@ import DomainInfo from './DomainInfo.vue'
       </div>
     </div>
 
-    <div v-if="this.showDomainInfo" class="h-[1px] w-11/12 bg-slate-200 self-center"></div>
+    <div v-if="showDomainInfo" class="h-[1px] w-11/12 bg-slate-200 self-center"></div>
 
-    <DomainInfo
-      v-if="this.showDomainInfo"
-      @toggle-add-domain="($event) => $emit('toggle-add-domain')"
-    />
+    <DomainInfo v-if="showDomainInfo" @toggle-add-domain="($event) => $emit('toggle-add-domain')" />
   </div>
 </template>
 

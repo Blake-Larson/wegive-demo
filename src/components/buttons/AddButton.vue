@@ -1,7 +1,7 @@
 <template>
   <button
     @click="($event) => $emit('btn-click')"
-    :class="[this.color ? this.color : '', 'py-2 px-5 rounded-xl text-white font-bold text-sm']"
+    :class="[color ? color : '', 'py-2 px-5 rounded-xl text-white font-bold text-sm']"
   >
     {{ text }}
   </button>

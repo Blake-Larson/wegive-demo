@@ -5,7 +5,7 @@ import IconChevronRight from '../icons/IconChevronRight.vue'
 <template>
   <div
     :class="[
-      this.extendedView ? 'border border-primary pb-8' : '',
+      extendedView ? 'border border-primary pb-8' : '',
       'w-full flex flex-col rounded-2xl  px-5 '
     ]"
   >
@@ -23,17 +23,12 @@ import IconChevronRight from '../icons/IconChevronRight.vue'
       </div>
 
       <div class="absolute right-6 flex gap-14">
-        <div
-          :class="[
-            this.extendedView && 'rotate-90',
-            'text-custom-grey transition-all duration-200'
-          ]"
-        >
+        <div :class="[extendedView && 'rotate-90', 'text-custom-grey transition-all duration-200']">
           <IconChevronRight />
         </div>
       </div>
     </div>
-    <div v-if="this.extendedView" class="px-16 flex flex-col gap-7">
+    <div v-if="extendedView" class="px-16 flex flex-col gap-7">
       <p class="text-sm">{{ desc }}</p>
       <slot></slot>
     </div>

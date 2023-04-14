@@ -1,7 +1,7 @@
 <script setup>
 import AddButton from './buttons/AddButton.vue'
 import DefaultSenderAddress from './DefaultSenderAddress.vue'
-import DomainItem from './DomainItem.vue'
+import DomainItem from './domain/DomainItem.vue'
 import IconBook from './icons/IconBook.vue'
 </script>
 

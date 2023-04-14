@@ -1,7 +1,7 @@
 <script setup>
-import DomainInfoExt from './DomainInfoExt.vue'
-import EditCustomAddresses from './EditCustomAddresses.vue'
-import AddButton from './buttons/AddButton.vue'
+import DomainInfoExt from '../domain/DomainInfoExt.vue'
+import EditCustomAddresses from '../EditCustomAddresses.vue'
+import AddButton from '../buttons/AddButton.vue'
 </script>
 
 <template>

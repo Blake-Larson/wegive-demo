@@ -1,5 +1,5 @@
 <script setup>
-import IconChevronRight from './icons/IconChevronRight.vue'
+import IconChevronRight from '../icons/IconChevronRight.vue'
 </script>
 
 <template>

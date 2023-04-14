@@ -1,7 +1,7 @@
 <script setup>
-import IconChevronRight from './icons/IconChevronRight.vue'
-import IconEnvelope from './icons/IconEnvelope.vue'
-import IconExclamation from './icons/IconExclamation.vue'
+import IconChevronRight from '../icons/IconChevronRight.vue'
+import IconEnvelope from '../icons/IconEnvelope.vue'
+import IconExclamation from '../icons/IconExclamation.vue'
 import DomainInfo from './DomainInfo.vue'
 </script>
 

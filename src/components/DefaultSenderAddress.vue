@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="flex flex-col gap-2 max-w-xl">
     <h5 class="font-bold">Default sender address</h5>

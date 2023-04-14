@@ -19,13 +19,12 @@ import AddButton from './buttons/AddButton.vue'
           you'd like to change how your name appears in email clients."
     >
       <EditCustomAddresses />
-      <div class="self-end">
-        <AddButton
-          @btn-click="($event) => $emit('toggle-add-domain')"
-          text="Add a custom address"
-          color="bg-primary"
-        />
-      </div>
+      <AddButton
+        class="self-end"
+        @btn-click="($event) => $emit('toggle-add-domain')"
+        text="Add a custom address"
+        color="bg-primary"
+      />
     </DomainInfoExt>
   </div>
 </template>

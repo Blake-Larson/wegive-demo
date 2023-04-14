@@ -1,18 +1,64 @@
-<script setup></script>
+<script setup>
+import NavItem from './NavItem.vue'
+</script>
 
 <template>
   <nav class="pt-6">
     <ul class="flex justify-evenly text-primary font-bold text-center hover:cursor-pointer">
-      <li class="border-b-2 border-primary pb-6 w-full">My Profile</li>
-      <!-- If current tab === this.tab ? 'border-none text-custom-grey' : 'border-b-2 border-primary' -->
-      <li class="pb-6 w-full text-custom-grey">Organziation</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Team</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Designations</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Tax Receipts</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Installation</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Payments</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Integrations</li>
-      <li class="border-b-2 border-primary pb-6 w-full">Text & Email</li>
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="My Profile"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Organization"
+      />
+      <NavItem :activeTab="activeTab" @tab-nav="($event) => $emit('tab-nav', $event)" name="Team" />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Designations"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Tax Receipts"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Installation"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Payments"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Integrations"
+      />
+      <NavItem
+        :activeTab="activeTab"
+        @tab-nav="($event) => $emit('tab-nav', $event)"
+        name="Text & Email"
+      />
     </ul>
   </nav>
 </template>
+
+<script>
+export default {
+  name: 'NavBar',
+  props: {
+    activeTab: {
+      type: String,
+      default: 'organization'
+    }
+  },
+  components: { NavItem }
+}
+</script>

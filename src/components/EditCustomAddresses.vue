@@ -23,20 +23,18 @@ import IconCheck from './icons/IconCheck.vue'
             class="border px-2 py-0.5 rounded-md"
             v-model="address.name"
           />
-          <div
+
+          <IconPencil
             v-if="!edit.active"
             @click="($event) => toggleShowForm(address.id, true)"
             class="mr-9 hover:cursor-pointer hover:bg-warning-light rounded-lg p-0.5"
-          >
-            <IconPencil />
-          </div>
-          <div
+          />
+
+          <IconCheck
             v-if="edit.active && edit.itemId === address.id"
-            @click="handleSave"
+            @click="handleSubmit"
             class="mr-9 hover:cursor-pointer hover:bg-success rounded-lg p-0.5"
-          >
-            <IconCheck />
-          </div>
+          />
         </div>
         <div>{{ address.email }}</div>
         <div class="flex justify-between items-center">
@@ -50,7 +48,11 @@ import IconCheck from './icons/IconCheck.vue'
           >
             {{ address.status }}
           </div>
-          <div class="hover:cursor-pointer hover:bg-warning rounded-lg p-0.5"><IconTrash /></div>
+
+          <IconTrash
+            @click="($event) => deleteAddress(address.id)"
+            class="hover:cursor-pointer hover:bg-warning rounded-lg p-0.5"
+          />
         </div>
       </div>
     </form>
@@ -95,15 +97,15 @@ export default {
         itemId: id
       }
     },
-    handleSave() {
-      this.handleSubmit()
-      this.edit = {
-        active: false,
-        itemId: null
+    deleteAddress(id) {
+      if (confirm('Are you sure you want to delete this address?')) {
+        //Send delete request to API
+        this.addresses = this.addresses.filter((address) => address.id !== id)
       }
     },
     handleSubmit() {
       console.log('form submitted')
+      //Send update request to API
       this.edit = {
         active: false,
         itemId: null

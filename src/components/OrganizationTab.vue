@@ -1,5 +1,6 @@
 <script setup>
 import AddButton from './buttons/AddButton.vue'
+import DefaultSenderAddress from './DefaultSenderAddress.vue'
 import DomainItem from './DomainItem.vue'
 import IconBook from './icons/IconBook.vue'
 </script>
@@ -15,19 +16,23 @@ import IconBook from './icons/IconBook.vue'
         </p>
         <div class="flex gap-1 items-center py-1 text-primary">
           <IconBook />
-          <span class="text-sm font-semibold">How custom addresses work</span>
+          <a href="/" class="text-sm font-semibold hover:cursor-pointer"
+            >How custom addresses work</a
+          >
         </div>
       </div>
       <AddButton @btn-click="toggleAddDomain" text="Add a custom address" color="bg-primary" />
     </div>
 
-    <!-- Add a component called AddDomain, show conditionally if showAddDomain is true -->
+    <!-- Could add a component called AddDomain, show conditionally if showAddDomain is true, submit a create request to the API and update data -->
 
     <div class="flex flex-col gap-4 py-5">
       <div v-for="domain in domains" :key="domain.id">
         <DomainItem @toggle-add-domain="toggleAddDomain" :domain="domain" />
       </div>
     </div>
+
+    <DefaultSenderAddress class="pt-5" />
   </section>
 </template>
 
@@ -37,7 +42,8 @@ export default {
   components: {
     AddButton,
     DomainItem,
-    IconBook
+    IconBook,
+    DefaultSenderAddress
   },
   data() {
     return {

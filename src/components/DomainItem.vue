@@ -16,9 +16,8 @@ import DomainInfo from './DomainInfo.vue'
       @click="toggleDomainInfo"
       class="flex items-center gap-4 py-8 px-6 relative hover:cursor-pointer"
     >
-      <div class="text-primary">
-        <IconEnvelope />
-      </div>
+      <IconEnvelope class="text-primary" />
+
       <div class="font-bold">{{ domain.name }}</div>
       <div
         :class="[
@@ -47,9 +46,11 @@ import DomainInfo from './DomainInfo.vue'
     </div>
 
     <div v-if="this.showDomainInfo" class="h-[1px] w-11/12 bg-slate-200 self-center"></div>
-    <div v-if="this.showDomainInfo">
-      <DomainInfo @toggle-add-domain="($event) => $emit('toggle-add-domain')" />
-    </div>
+
+    <DomainInfo
+      v-if="this.showDomainInfo"
+      @toggle-add-domain="($event) => $emit('toggle-add-domain')"
+    />
   </div>
 </template>
 
